@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,23 +49,23 @@ public class AddBookTest {
 //	 *  <li> The administrator is not logged in to the library application
 //	 * </ol>
 //	 */
-//	@Test
-//	public void testLoginFailed() {
-//
-//		LibraryApp libApp = new LibraryApp();
-//		
-//		// Check first that the administrator is not logged in.
-//
-//		assertFalse(libApp.adminLoggedIn());
-//		
-//		// Step 1)
-//		
-//		boolean login = libApp.adminLogin("wrong password");
-//		
-//		// Step 2+3) Check that the method returned false and check that admin is still not logged in.
-//		assertFalse(login);
-//		assertFalse(libApp.adminLoggedIn());
-//	}
+	@Test
+	public void testLoginFailed() {
+
+		LibraryApp libApp = new LibraryApp();
+		
+		// Check first that the administrator is not logged in.
+
+		assertFalse(libApp.adminLoggedIn());
+		
+		// Step 1)
+		
+		boolean login = libApp.adminLogin("wrong password");
+		
+		// Step 2+3) Check that the method returned false and check that admin is still not logged in.
+		assertFalse(login);
+		assertFalse(libApp.adminLoggedIn());
+	}
 //
 //	/** 
 //	 * Tests the scenario that the administrator can add a book to the library via the library application.
@@ -73,52 +75,52 @@ public class AddBookTest {
 //	 *  <li> The book is added to the library by calling addBook from the library application.
 //	 * </ol>
 //	 */
-//	@Test
-//	public void testAdminAddBook() throws Exception {
-//		
-//		LibraryApp libApp = new LibraryApp();
-//		
-//		// Check first the initial state of the library and the library application.
-//		// a) The library has no books.
-//		// b) The administrator is not logged in.
-//		
-//		assertTrue(libApp.getBooks().isEmpty());
-//		assertFalse(libApp.adminLoggedIn());
-//		
-//		// Step 1)
-//		
-//		boolean login = libApp.adminLogin("adminadmin");
-//		
-//		// Check that the login was successful.
-//		// a) The method adminLogin returned true
-//		// b) The library applications knows that the administrator has logged in,
-//		//    by checking that libApp.adminLoggedIn() returns true
-//		
-//		assertTrue(login);
-//		assertTrue(libApp.adminLoggedIn());
-//		
-//		// Step 2)
-//				
-//		String signature = "Som002";
-//		String title = "Software Engineering - 9";
-//		String author = "Ian Sommerville";
-//		
-//		Book book1 = new Book(signature,title,author);
-//		
-//		// Step 3)
-//		
-//		libApp.addBook(book1);
-//		
-//		// Check that the book was added to the library.
-//		// a) The library has now one book.
-//		// b) The book in the library has the correct title and author.
-//
-//		List<Book> books = libApp.getBooks();
-//		assertEquals(1,books.size());
-//		assertEquals(signature,books.get(0).getSignature());
-//		assertEquals(title,books.get(0).getTitle());
-//		assertEquals(author,books.get(0).getAuthor());
-//	}
+	@Test
+	public void testAdminAddBook() throws Exception {
+		
+		LibraryApp libApp = new LibraryApp();
+		
+		// Check first the initial state of the library and the library application.
+		// a) The library has no books.
+		// b) The administrator is not logged in.
+		
+		assertTrue(libApp.getBooks().isEmpty());
+		assertFalse(libApp.adminLoggedIn());
+		
+		// Step 1)
+		
+		boolean login = libApp.adminLogin("adminadmin");
+		
+		// Check that the login was successful.
+		// a) The method adminLogin returned true
+		// b) The library applications knows that the administrator has logged in,
+		//    by checking that libApp.adminLoggedIn() returns true
+		
+		assertTrue(login);
+		assertTrue(libApp.adminLoggedIn());
+		
+		// Step 2)
+				
+		String signature = "Som002";
+		String title = "Software Engineering - 9";
+		String author = "Ian Sommerville";
+		
+		Book book1 = new Book(signature,title,author);
+		
+		// Step 3)
+		
+		libApp.addBook(book1);
+		
+		// Check that the book was added to the library.
+		// a) The library has now one book.
+		// b) The book in the library has the correct title and author.
+
+		List<Book> books = libApp.getBooks();
+		assertEquals(1,books.size());
+		assertEquals(signature,books.get(0).getSignature());
+		assertEquals(title,books.get(0).getTitle());
+		assertEquals(author,books.get(0).getAuthor());
+	}
 //
 //	/** 
 //	 * Tests the scenario when the administrator wants to add a book, but is not logged in.

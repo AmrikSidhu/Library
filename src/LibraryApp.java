@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryApp {
 	private boolean isLoggedIn = false;
+	private List<Book> books =  new ArrayList<Book>();
 	
 	// constructor for class.
 	public LibraryApp()
@@ -24,6 +27,14 @@ public class LibraryApp {
 			
 		}
 	
+	}
+	public List<Book> getBooks()
+	{
+		return this.books;
+	}
+	public void addBook(Book book)
+	{
+	this.books.add(book);	
 	}
 
 }
