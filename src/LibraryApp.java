@@ -32,6 +32,10 @@ public class LibraryApp {
 	{
 		return this.books;
 	}
+	public void setBooks(List<Book> book)
+	{
+		//return this.books;
+	}
 	public void addBook(Book book) throws OperationNotAllowedException
 	{
 		if (isLoggedIn == true)
@@ -42,6 +46,14 @@ public class LibraryApp {
 		{
 			throw new OperationNotAllowedException();
 		}
+	}
+//	public void setBooks(List<Book> books2) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+	public List<Book> search(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

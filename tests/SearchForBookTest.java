@@ -1,38 +1,41 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class SearchForBookTest {
 
-//	LibraryApp libApp = new LibraryApp();
-//
-//	/**
-//	 * Create the sample data for the search test cases.
-//	 * This method is executed each time one of the test methods is run.
-//	 * In contrast to old JUnit versions, it is now the @Before annotations that
-//	 * marks this method to be run before each test case and not the name setUp().
-//	 */
-//	@Before
-//	public void setUp() throws Exception {
-//		List<Book> books = new ArrayList<Book>();
-//		books.add(new Book("Som001","Software Engineering - 9","Ian Sommerville"));
-//		books.add(new Book("Sof001","XML for Dummies","Fred Software"));
-//		libApp.setBooks(books);
-//	}
-//
-//	/**
-//	 * Tests searching for books in the library.
-//	 * Tests that the search finds matches a substring in the
-//	 * author field of a book.
-//	 */
-//	@Test
-//	public void testSearchBooksTitle() {
-//		List<Book> books = libApp.search("Ian");
-//		assertEquals(1,books.size());
-//		assertEquals("Software Engineering - 9",books.get(0).getTitle());
-//	}
+	LibraryApp libApp = new LibraryApp();
+
+	/**
+	 * Create the sample data for the search test cases.
+	 * This method is executed each time one of the test methods is run.
+	 * In contrast to old JUnit versions, it is now the @Before annotations that
+	 * marks this method to be run before each test case and not the name setUp().
+	 */
+	@Before
+	public void setUp() throws Exception {
+		List<Book> books = new ArrayList<Book>();
+		books.add(new Book("Som001","Software Engineering - 9","Ian Sommerville"));
+		books.add(new Book("Sof001","XML for Dummies","Fred Software"));
+		libApp.setBooks(books);
+	}
+
+	/**
+	 * Tests searching for books in the library.
+	 * Tests that the search finds matches a substring in the
+	 * author field of a book.
+	 */
+	@Test
+	public void testSearchBooksTitle() {
+		List<Book> books = libApp.search("Ian");
+		assertEquals(1,books.size());
+		assertEquals("Software Engineering - 9",books.get(0).getTitle());
+	}
 //
 //	/**
 //	 * Tests searching for books in the library.
