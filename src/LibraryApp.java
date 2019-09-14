@@ -32,9 +32,16 @@ public class LibraryApp {
 	{
 		return this.books;
 	}
-	public void addBook(Book book)
+	public void addBook(Book book) throws OperationNotAllowedException
 	{
+		if (isLoggedIn == true)
+		{
 	this.books.add(book);	
+	}
+		else
+		{
+			throw new OperationNotAllowedException();
+		}
 	}
 
 }

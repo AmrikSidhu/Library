@@ -130,42 +130,42 @@ public class AddBookTest {
 //	 *  <li> The library application throws an exception.
 //	 * </ol>
 //	 */
-//	@Test
-//	public void testAdminAddBookNotLoggedIn() {
-//
-//		LibraryApp libApp = new LibraryApp();
-//		
-//		// Check first the initial state of the library and the library application.
-//		// a) The library has no books.
-//		// b) The administrator is not logged in.
-//		
-//		assertTrue(libApp.getBooks().isEmpty());
-//		assertFalse(libApp.adminLoggedIn());
-//		
-//		// Step 1)
-//		
-//		Book book1 = new Book("Som001","Software Engineering - 9","Ian Sommerville");
-//		
-//		// Step 2)
-//		
-//		try {
-//			libApp.addBook(book1);
-//			// The fail assertion fails all the time.
-//			// The argument is a description describing the reason for the failure.
-//			// The basic idea is to say it is a failure if addBook is terminates normally, i.e.,
-//			// if no exception is thrown.
-//			fail("OperationNotAllowedException exception should have been thrown");
-//		} catch (OperationNotAllowedException e) {
-//			// Step 3)
-//			// Check that the exception thrown has the correct error message and knows which operation failed.
-//			
-//			assertEquals("Add book operation not allowed if not admin.",e.getMessage());
-//			assertEquals("Add book",e.getOperation());
-//		}
-//		
-//		// Check that the book has not been added to the library.
-//		
-//		assertEquals(0,libApp.getBooks().size());
-//	}	
+	@Test
+	public void testAdminAddBookNotLoggedIn() {
+
+		LibraryApp libApp = new LibraryApp();
+		
+		// Check first the initial state of the library and the library application.
+		// a) The library has no books.
+		// b) The administrator is not logged in.
+		
+		assertTrue(libApp.getBooks().isEmpty());
+		assertFalse(libApp.adminLoggedIn());
+		
+		// Step 1)
+		
+		Book book1 = new Book("Som001","Software Engineering - 9","Ian Sommerville");
+		
+		// Step 2)
+		
+		try {
+			libApp.addBook(book1);
+			// The fail assertion fails all the time.
+			// The argument is a description describing the reason for the failure.
+			// The basic idea is to say it is a failure if addBook is terminates normally, i.e.,
+			// if no exception is thrown.
+			fail("OperationNotAllowedException exception should have been thrown");
+		} catch (OperationNotAllowedException e) {
+			// Step 3)
+			// Check that the exception thrown has the correct error message and knows which operation failed.
+			
+			assertEquals("Add book operation not allowed if not admin.",e.getMessage());
+			assertEquals("Add book",e.getOperation());
+		}
+		
+		// Check that the book has not been added to the library.
+		
+		assertEquals(0,libApp.getBooks().size());
+	}	
 
 }
