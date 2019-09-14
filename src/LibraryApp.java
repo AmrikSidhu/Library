@@ -1,19 +1,26 @@
 
 public class LibraryApp {
+	private boolean isLoggedIn = false;
+	
+	// constructor for class.
+	public LibraryApp()
+	{
+		
+	}
 	public boolean adminLoggedIn()
 	{
-		return true;
+		return this.isLoggedIn;
 	}
 	public boolean adminLogin( String password)
 	{
-		if(password.equals("password"))
+		if(password.equals("adminadmin"))
 		{
-			return true;
+			return this.isLoggedIn = true;
 			
 		} 
 		else
 		{
-			return false;
+			return this.isLoggedIn = false;
 			
 		}
 	
